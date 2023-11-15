@@ -16,12 +16,19 @@
             <div class="row justify-content-center">
                 <div class="col-6">
 
-                     <ul class="list-group" v-if="items.length > 0">
-                        <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(item, index) in items">
-                        {{ item }}
-                        <span class="badge bg-dark rounded-pill">&cross;</span>
-                        </li>
-                    </ul>
+                    <div class="col-6">
+                        <div class="mb-3">
+                          <label for="text" class="form-label">new item</label>
+                          <input type="text" class="form-control" id="name" v-model="newItem"/>
+                          <button class="btn btn-primary" @click="addItem">Aggiungi</button>
+                        </div>
+                        <ul class="list-group" v-if="items.length > 0">
+                            <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(item, index) in items">
+                            {{ item }}
+                            <span class="badge bg-dark rounded-pill" @click="deleteItem()">&cross;</span>
+                            </li>
+                         </ul>
+                    </div>
 
                 </div>
             </div>

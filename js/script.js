@@ -8,7 +8,14 @@ createApp({
         }
     },
     methods: {
+        deleteItem : function() {
+            this.items.splice(this.item,1)
 
+        },
+        addItem : function() {
+             this.items.push(this.newItem)
+
+        }
     }
 }).mount("#app")
 
