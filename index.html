@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- VUE -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
+
 <body>
     <div id="app">
         <div class="container">
-            <h2 class="text-center m-3">TO DO LIST</h2>
+            <h2 class="text-center m-3 fst-italic">TO DO LIST</h2>
             <div class="row justify-content-center">
-                <div class="col-6">
 
-                    <div class="col-6">
-                        <div class="mb-3">
-                          <label for="text" class="form-label">new item</label>
-                          <input type="text" class="form-control" id="name" v-model="newItem"/>
-                          <button class="btn btn-primary" @click="addItem">Aggiungi</button>
-                        </div>
-                        <ul class="list-group" v-if="items.length > 0">
-                            <li class="list-group-item d-flex justify-content-between align-items-center" v-for="(item, index) in items">
-                            {{ item }}
-                            <span class="badge bg-dark rounded-pill" @click="deleteItem()">&cross;</span>
-                            </li>
-                         </ul>
+
+                <div class="col-12">
+                    <div class="mb-3">
+                        <label for="text" class="form-label">aggiungi una nuova cosa da fare!</label>
+                        <input type="text" class="form-control" id="name" v-model="newItem" @keyup.enter="addItem()" />
+                        <button class="btn m-2 btn-primary" @click="addItem">Aggiungi</button>
                     </div>
-
+                    <ul class="list-group" v-if="items.length > 0">
+                        <li class="list-group-item d-flex justify-content-between align-items-center"
+                            v-for="(item, index) in items">
+                            {{ item }}
+                            <span class="badge bg-dark rounded-pill" @click="deleteItem(index)">&cross;</span>
+                        </li>
+                    </ul>
                 </div>
+
+
             </div>
         </div>
 
@@ -39,6 +43,7 @@
     </div>
 
 
- <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
+
 </html>

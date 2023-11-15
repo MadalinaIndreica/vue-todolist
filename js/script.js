@@ -3,13 +3,13 @@ const { createApp } = Vue;
 createApp({
     data() {
         return { 
-            items: ["item1","item2","item3","item4"]
+            items: ["portare fuori il cane","fare la spesa","pulire il bagno","fare una doccia rilassante"]
 
         }
     },
     methods: {
-        deleteItem : function() {
-            this.items.splice(this.item,1)
+        deleteItem : function(index) {
+            this.items.splice(index,1)
 
         },
         addItem : function() {
